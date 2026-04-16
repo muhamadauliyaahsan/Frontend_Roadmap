@@ -1,0 +1,65 @@
+/* 1. Tipografi & Elemen Dasar Organik (Elemen Tag) */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Mengganti Font bawaan */
+    background-color: #fce4ec; /* Warna Latar (Merah Muda Terang) agar cerah */
+    color: #333333; /* Warna Teks Utama (Abu-abu gelap) */
+    margin: 0;
+    padding: 20px;
+}
+
+/* 2. Selektor Class (.nama) */
+.teks-tengah {
+    text-align: center; /* Teks Rata Tengah (Center alignment) */
+}
+
+.pesan-penting {
+    color: #c2185b; /* Warna Teks Merah/Pink Gelap */
+    font-weight: bold; /* Menebalkan teks (Bold) */
+    font-size: 18px; /* Mengunci Ukuran Teks */
+}
+
+/* 3. Selektor ID (#nama) */
+#bagian-profil {
+    background-color: #ffffff; /* Warna kardusnya Putih */
+    padding: 15px; /* Jangkauan ruang dalam / bernapas ke arah tembok karton */
+    border-radius: 12px; /* Menumpulkan/melengkungkan siku kotak sebesar 12px */
+    margin-bottom: 20px; /* Jangkauan menolak kotak lain ke bagian bawah */
+}
+
+/* 4. ⭐️ BOX MODEL (Padding, Margin, Border, Width, Height) */
+.kotak-model {
+    background-color: #e3f2fd; /* Warnai biru muda air */
+    border: 4px solid #2196f3; /* DINDING FISIK (Tebal 4px, Jenis Padat/Solid, Warna Biru) */
+    padding: 25px; /* JARAK RUANG DALAM (Agar teks tidak nempel ke dinding biru) */
+    margin: 20px 0; /* JARAK RUANG LUAR (Atas-Bawah 20px, Kanan-Kiri 0px) */
+    border-radius: 8px; /* Menumpulkan ujung bordernya */
+}
+
+.kardus-contoh {
+    background-color: #ffb300; /* Oranye/Kuning Gelap */
+    color: white; /* Teks di dalam berwarna putih otomatis */
+    width: 250px; /* Memaksa Lebar Kotak cuma boleh 250 pixel */
+    height: 100px; /* Memaksa Tinggi Kotak cuma boleh 100 pixel */
+    padding: 15px; /* Ruang dalam */
+    margin-top: 15px; /* Mendorong/Menolak elemen lain menjauhinya dari sisi atas sejauh 15px */
+    border: 3px dashed #e65100; /* Dinding Jenis Putus-putus (Dashed) */
+}
+
+/* 5. Dekorasi Tombol dengan Interaksi Animasi Kursor (Hover) */
+.tombol-keren {
+    background-color: #4caf50; /* Base Hijau */
+    color: white;
+    border: none; /* Menghilangkan border jelek bawaan browser 90-an */
+    padding: 12px 24px;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 5px; /* Siku tumpul */
+    cursor: pointer; /* Saat disorot mouse akan memunculkan gambar tangan/jari mengetik */
+    transition: 0.3s; /* Efek perubahan pelan-pelan selama 0.3 detik */
+}
+
+/* Pseudo-class Hover (Aturan ini aktif HANYA Saat kursor mouse menimpa/menyorot tombol) */
+.tombol-keren:hover {
+    background-color: #1b5e20; /* Berubah jadi hijau sgt gelap saat disorot */
+    transform: scale(1.05); /* Membesar ukurannya efek timbul! */
+}
