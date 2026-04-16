@@ -95,3 +95,55 @@ header {
         width: 30%; 
     }
 }
+
+/*
+1. Kapan Harus Memakai Class vs ID?
+Peraturan ini sebenarnya sederhana namun mutlak:
+
+🔴 ID (diawali tanda pagar #) adalah "Nomor KTP" Unik: Dalam satu halaman (contoh #navbar atau #tombol-login), hanya boleh ada 1 elemen yang dipanggil dengan ID ini. Ibarat Kepala Negara, tidak boleh ada dua Presiden dalam satu negara/halaman. Biasanya ID hanya dipakai untuk wadah absolut terluar atau kerangka utama halaman (atau sebagai rujukan titik navigasi href="#...").
+🟢 Class (diawali tanda titik .) adalah "Seragam Kelompok": Bisa dipakai untuk elemen tak terbatas dalam jumlah yang banyak. Jika kamu punya 10 kotak produk yang gayanya harus seragam, kamu pakaikan mereka semua seragam class yang sama (misal .kartu-produk).
+2. Kenapa Ada Selektor Bersarang (Nested) seperti .kartu-produk button?
+Ini adalah teknik pendelegasian atau pelacakan "Anak Spesifik di dalam Induknya". Di halaman web penuh, mungkin ada berpuluh-puluh kali kamu memasukkan tag <button> (tombol). Ada tombol di menu navigasi, tombol 'Beli Sini', tombol 'Tutup Web'.
+
+Jika kamu hanya membuat aturan CSS serampangan:
+
+css
+button { background-color: red; }
+Maka SEMUA tombol di seluruh jagat kodemu akan bergetar berubah warna merah! Untuk mencegah huru-hara itu, kita menetapkan aturan (Nested Targetting) kekhususan target:
+
+Panggilan "Keturunan" (Memakai SPASI / Descendant Combinator):
+
+css
+.kartu-produk button { background-color: red; }
+(Artinya: Hai CSS, tolong cari siapapun elemen yang punya class .kartu-produk, lalu masuk ke dalam jeroannya, dan hanya ubah tombol yang bersarang di dalam perut kartu itu saja, sedangkan tombol lain di luar sana jangan diganggu!)
+
+Panggilan "Hanya Anak Kandung" (Memakai Tanda Panah >) Variasi Lain:
+
+css
+.kartu-produk > p { font-size: 20px; }
+(Artinya: Cari hanya paragraf <p> yang merupakan cucu langsung/berada tepat satu persis cangkang lapis saja di bawahnya, jangan cari terjun ke kedalaman div anak yang lain).
+
+Panggilan Kembar Gabungan (Tanpa Spasi): Di sisi HTML: <div class="kartu-produk mahal"> Di sisi CSS: .kartu-produk.mahal { border-color: emas; } (Artinya: Syarat mutlak! Cari elemen yang punya spesifikasi pakai seragam "kartu-produk" DAN juga pakai "mahal" secara bersamaan di dalam satu elemen HTML).
+
+3. Variasi Modern: Gaya Menamai Class ala Industri
+Di perusahaan teknologi modern (karena projeknya biasanya membengkak ribuan baris teks), para developer menciptakan standardisasi penamaan/variasi mutakhir:
+
+A. Metode BEM (Block, Element, Modifier)
+Metode kesepakatan penamaan di mana titik CSS tidak membingungkan atau tumpang tindih. Penggunaannya sangat eksplisit menggunakan tanda hubung-garis-bawah __ dan --.
+
+Block (Sektor Utama): .card
+Element (Anak di dalam Blok): .card__title, .card__button
+Modifier (Versi rubahan bentuk fisik dari utamanya): .card__button--danger (Misalnya tombol versi merah). Contoh di HTML: <button class="card__button card__button--danger">Hapus</button>
+B. Metode Utility-Class (Tailwind CSS - Masa Depan 🔥)
+Di masa modern ini, ada Framework CSS revolusioner (yang bahkan masuk di poin terakhir Roadmap FE milikmu) yang bernama TailwindCSS. Di sini, kita bahkan sama sekali tidak membuat class buatan fiktif dan mendiktekan desain di dalam ekstensi tipe file .css manual lagi! Kelasnya langsung menjelaskan fungsi wujud rupanya (mirip perintah bahasa Inggris).
+
+Contoh Penamaan HTML Utility-Class Tailwind:
+
+html
+<button class="bg-blue-500 text-white font-bold px-4 py-2 rounded-lg hover:bg-blue-700">
+    Beli Sekaran
+</button>
+(Artinya akan langsung di-compile mesin: Background Biru (kadar ketebalan warna tingkat 500), Tulisan Putih, Font Tebal, Padding Sumbu-X 4, Padding Sumbu-Y 2, Ujung Tumpul Bulat, Kalau Hover jadi Biru Gelap 700).
+
+Penamaan Class mana yang paling benar? Jawabannya tentu disesuaikan dengan aturan atau kebutuhan sebuah proyek, dan sekarang rasanya seragam Utility-Class seperti Tailwind tengah menjadi jawara di segala sisi perusahaan teknologi.
+*/
