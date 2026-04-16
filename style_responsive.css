@@ -1,0 +1,97 @@
+/* =============================================
+   TIPS & TRICK #1: Reset Global "Kesaktian Baru"
+   ============================================= */
+* {
+    /* Wajib disematkan setiap membuat web modern! */
+    /* Ini menjinakkan Box Model (Padding/Border) 
+       agar tidak "menjebol/memperlebar" ukuran wadah aslinya. */
+    box-sizing: border-box; 
+}
+
+/* =============================================
+   Styling Dasar (Kecantikan Default)
+   ============================================= */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f7f9fc;
+    margin: 0;
+    color: #333;
+}
+
+header {
+    background-color: #3f51b5; /* Biru Indigo */
+    color: white;
+    text-align: center;
+    padding: 30px 20px;
+}
+
+.container {
+    max-width: 1000px; /* Lebar maksimal layarnya */
+    margin: 0 auto; /* Menengahkan container penuh gaya di PC/Mac */
+    padding: 20px;
+}
+
+/* =============================================
+   TIPS & TRICK #2: FLEXBOX (Senjata Rak Pengatur)
+   ============================================= */
+.rak-produk {
+    display: flex; /* MANTRA UTAMA MENGAKTIFKAN TATA LETAK FLEKSIBEL! */
+    flex-wrap: wrap; /* Jika sumpek tak muat, jatuhkan kotak sisanya ke baris bawahnya! */
+    gap: 20px; /* Selipkan jarak spasi antar kotak tanpa repot pikir margin-right/left kusam */
+    justify-content: center; /* Rapikan ke tengah layar (centering elements) */
+}
+
+/* Kotak individu per item-produk */
+.kartu-produk {
+    background-color: white;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1); /* Tip trick #3: Tambahan Efek Bayangan Melayang (Box Shadow) */
+    
+    /* DEFAULT "Mobile-First": 
+       Setel menjadi lebar penuh layaknya di Layar HP (100%) terlebih dahulu. */
+    width: 100%; 
+}
+
+.kartu-produk h3 { margin-top: 0; color: #283593; }
+
+.kartu-produk button {
+    background-color: #ff4081; /* Pink Cerah */
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    width: 100%; /* Lebar tombol layar full penuh juga */
+    transition: 0.3s;
+}
+
+.kartu-produk button:hover { background-color: #c60055; }
+
+
+/* =========================================================
+   TIPS & TRICK #4: SIHIR MEDIA QUERIES (@media)
+   =========================================================
+   Ini adalah rahasia Dapur "Web Responsive".
+   Aturan berbunyi: Jika layar browser Melebar hingga mencapai Titik Target 
+   berikut, aplikasikan bentuk/desain spesifik berikut yang BEDA ini! 
+*/
+
+/* --- Target: TABLET (Layar Minimal 768 pixel) --- */
+@media (min-width: 768px) {
+    .kartu-produk {
+        /* Lebarnya yang tadinya 100% dipaksa dipendekkan jadi k.l 45%.
+           Supaya ada 2 kotak yg muat berjejer berdampingan di satu baris Flex. */
+        width: 48%; 
+    }
+}
+
+/* --- Target: LAPTOP/KOMPUTER DESKTOP (Layar Minimal Monitor 1024 pixel) --- */
+@media (min-width: 1024px) {
+    .kartu-produk {
+        /* Layar raksasa PC! Ayo rampingkan kotaknya jadi cuma makan area sepertiga saja.
+           Imbasnya? Jreng.. Rak Produk menampung 3 kartu berjejer ke samping. */
+        width: 30%; 
+    }
+}
